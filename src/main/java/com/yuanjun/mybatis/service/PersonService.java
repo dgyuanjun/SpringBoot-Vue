@@ -5,4 +5,5 @@ import com.yuanjun.mybatis.entity.Person;
 
 public interface PersonService extends IService<Person> {
 
+    Person checkLogin(String username,String password);
 }

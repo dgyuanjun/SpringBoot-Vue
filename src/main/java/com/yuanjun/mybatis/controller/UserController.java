@@ -6,7 +6,9 @@ import com.yuanjun.mybatis.entity.User;
 import com.yuanjun.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.jws.Oneway;
 import java.util.List;
@@ -25,10 +27,14 @@ public class UserController {
         }
         return userService.getAll();
     }
-    @RequestMapping("test")
-    public String test(){
-        System.out.printf("hello world!");
-        return "hello world!";
+    @ResponseBody
+    @RequestMapping("/save")
+    public ModelAndView home() {
+        System.out.println("beelt测试");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("email", "apk2sf@163.com");
+        modelAndView.setViewName("add");
+        return modelAndView;
     }
     @RequestMapping("findByName")
     public User findByName(){
